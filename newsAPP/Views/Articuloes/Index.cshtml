@@ -1,0 +1,83 @@
+﻿@model IEnumerable<Newsapplibrary.Models.Articulo>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>NEWSAPP</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Titulo)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Contenido)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ImagenUrl)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Autor)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Fechapublicacion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdcategoryNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdfuenteNavigation)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.IdpaisNavigation)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Titulo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Contenido)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ImagenUrl)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Autor)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Fechapublicacion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdcategoryNavigation.Idcategory)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdfuenteNavigation.Idfuente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IdpaisNavigation.Idpais)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.Idarticulo">Edit</a> |
+                <a asp-action="Details" asp-route-id="@item.Idarticulo">Details</a> |
+                <a asp-action="Delete" asp-route-id="@item.Idarticulo">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

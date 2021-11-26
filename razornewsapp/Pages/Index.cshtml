@@ -1,0 +1,24 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="row" style="margin-top:5%">
+    @foreach (var item in Model.articulos)
+    {
+        <div class="card card-body mt-3" style="width: 18rem;">
+            <img src="@Url.Content(item.ImagenUrl)" class="card-img-top" alt="Image the news">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.Titulo)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.Descripcion)</p>
+                <p class="card-text"><small class="text-muted">Piblication date: @Html.DisplayFor(modelItem => item.Fechapublicacion)</small></p>
+                <p class="card-text"><small class="text-muted">Author: @Html.DisplayFor(modelItem => item.Autor)</small></p>
+
+
+
+              
+            </div>
+        </div>
+    }
+</div>
